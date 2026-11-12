@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<!-- custom -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>$DAWAE | Do you know da wae? On Solana</title>
+<meta name="description" content="Knuckles, the clicking red echidna meme from 2018 VR, is back with a crown and a gold 69 chain. Follow da wae. $DAWAE on Solana.">
+<meta property="og:title" content="$DAWAE | Do you know da wae?">
+<meta property="og:description" content="Knuckles is back with a crown and a gold 69 chain. Follow da wae. $DAWAE on Solana.">
+<meta property="og:image" content="banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E8202A">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@400;500;600;700&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E8202A;--red2:#B3121C;--red3:#7A0B12;--yel:#FFD21F;--yel2:#FFE873;--blk:#141010;--ink:#1d1414;
+  --cream:#FFF4D6;--grn:#1E8A3C;--grn2:#2BB04F;--grn3:#0F5A27;
+  --ease:cubic-bezier(.2,.9,.25,1.25);--out:cubic-bezier(.16,.8,.2,1);
+  --b:4px solid var(--blk);--sh:6px 6px 0 var(--blk);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--blk);color:var(--ink);font-family:'Fredoka',system-ui,sans-serif;font-size:18px;line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.lg{font-family:'Luckiest Guy','Bungee',system-ui,sans-serif;font-weight:400;letter-spacing:.02em;line-height:.95}
+.bg{font-family:'Bungee',system-ui,sans-serif;font-weight:400;letter-spacing:.02em}
+.wrap{width:min(1180px,92vw);margin:0 auto;position:relative}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:4px dashed var(--yel);outline-offset:4px}
+
+/* chunky text */
+.chunk{color:var(--yel);-webkit-text-stroke:3px var(--blk);paint-order:stroke fill;text-shadow:0 5px 0 var(--blk),5px 9px 0 var(--red2),5px 11px 0 var(--blk)}
+.chunk.r{color:var(--red)}
+.chunk.w{color:#fff}
+h2.title{font-size:clamp(46px,8vw,104px);margin-bottom:.25em}
+.kicker{display:inline-block;font-family:'Bungee';font-size:14px;background:var(--blk);color:var(--yel);padding:.45em .9em;border-radius:999px;transform:rotate(-2deg);margin-bottom:18px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:'Bungee';font-size:16px;padding:.85em 1.3em;border:var(--b);border-radius:16px;background:var(--yel);color:var(--blk);box-shadow:var(--sh);text-decoration:none;transition:transform .18s var(--ease),box-shadow .18s}
+.btn:hover{transform:translate(-2px,-3px) rotate(-1deg);box-shadow:9px 10px 0 var(--blk)}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--blk)}
+.btn.red{background:var(--red);color:#fff}
+.btn.blk{background:var(--blk);color:var(--yel);border-color:var(--yel);box-shadow:6px 6px 0 var(--yel)}
+.btn svg{width:20px;height:20px}
+
+/* nav */
+nav{position:fixed;inset:12px 12px auto 12px;z-index:50;display:flex;align-items:center;gap:14px;padding:8px 10px 8px 8px;background:var(--cream);border:var(--b);border-radius:20px;box-shadow:var(--sh);transition:transform .35s var(--out)}
+nav.hide{transform:translateY(-130%)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Luckiest Guy';font-size:26px;color:var(--red);-webkit-text-stroke:1.5px var(--blk);paint-order:stroke fill}
+.brand img{width:42px;height:42px;border-radius:12px;border:3px solid var(--blk)}
+.links{display:flex;gap:4px;margin-left:auto}
+.links a{font-family:'Bungee';font-size:13px;text-decoration:none;padding:.5em .75em;border-radius:10px}
+.links a:hover{background:var(--yel)}
+.snd{display:flex;align-items:center;gap:8px;font-family:'Bungee';font-size:12px;padding:.55em .8em;border:3px solid var(--blk);border-radius:12px;background:#fff}
+.snd .dot{width:12px;height:12px;border-radius:50%;background:#bbb;border:2px solid var(--blk)}
+.snd[aria-pressed="true"]{background:var(--red);color:#fff}
+.snd[aria-pressed="true"] .dot{background:var(--yel)}
+nav .btn{padding:.55em .95em;font-size:13px;box-shadow:3px 3px 0 var(--blk);border-width:3px;border-radius:12px}
+@media (max-width:980px){.links{display:none}.snd{margin-left:auto}}
+@media (max-width:420px){.brand span{display:none}.snd b{display:none}}
+
+/* wae-o-meter */
+.meter{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:10px;background:var(--blk);color:var(--yel);border:3px solid var(--yel);border-radius:16px;padding:8px 12px 8px 8px;font-family:'Bungee';font-size:11px;line-height:1.1;box-shadow:4px 4px 0 var(--red)}
+.meter svg{width:40px;height:40px}
+.meter{transition:opacity .3s,transform .3s}.meter.gone{opacity:0;transform:translateY(20px);pointer-events:none}
+.meter .n{font-size:16px;color:#fff}
+@media (max-width:640px){.meter{display:none}}
+
+/* ===== HERO ===== */
+#hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:linear-gradient(180deg,#FFE45C 0%,#FFB238 38%,#FF7A2E 62%,#F2462A 100%);display:flex;align-items:center;isolation:isolate}
+.layer{position:absolute;left:0;right:0;bottom:0;width:100%;will-change:transform;pointer-events:none}
+.layer svg{width:100%;height:100%;display:block}
+.l-sun{top:0;height:100%}
+.l-clouds{top:0;height:62%}
+.l-far,.l-mid,.l-front{height:70%}
+.l-front{z-index:3}
+.cl{animation:drift 26s ease-in-out infinite alternate}
+.cl:nth-child(2n){animation-duration:34s;animation-direction:alternate-reverse}
+@keyframes drift{to{transform:translateX(70px)}}
+.hero-in{position:relative;z-index:4;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:120px 0 160px}
+.hero-in h1{font-size:clamp(64px,9.5vw,148px)}
+.hero-in h1 .q{display:block;font-family:'Bungee';font-size:clamp(20px,3vw,34px);-webkit-text-stroke:0;text-shadow:none;color:var(--blk);margin-bottom:.15em;letter-spacing:.06em}
+.hero-in h1 .big{display:block}
+.hero-in p.lead{font-size:clamp(18px,1.6vw,22px);font-weight:500;max-width:30em;margin:22px 0 26px;color:var(--blk);background:rgba(255,244,214,.85);border:3px solid var(--blk);padding:14px 18px;border-radius:16px;box-shadow:5px 5px 0 var(--blk)}
+.ca{display:flex;align-items:stretch;max-width:520px;border:var(--b);border-radius:16px;overflow:hidden;box-shadow:var(--sh);background:#fff;margin-bottom:22px}
+.ca .lab{font-family:'Bungee';background:var(--blk);color:var(--yel);padding:12px 14px;display:flex;align-items:center}
+.ca code{flex:1;font-family:ui-monospace,Menlo,monospace;font-size:15px;padding:12px 14px;display:flex;align-items:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ca button{font-family:'Bungee';font-size:13px;background:var(--yel);border-left:var(--b);padding:0 16px}
+.ca button.ok{background:var(--grn2);color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero-art{position:relative;justify-self:center;width:min(440px,80vw)}
+.frame{position:relative;border:6px solid var(--blk);border-radius:28px;overflow:hidden;box-shadow:12px 12px 0 var(--blk);transform:rotate(3deg);background:var(--red);will-change:transform}
+.frame img{width:100%;aspect-ratio:1;object-fit:cover}
+.tag69{position:absolute;right:-26px;bottom:40px;z-index:2;width:110px;height:110px;border-radius:50%;background:var(--yel);border:5px solid var(--blk);display:grid;place-items:center;font-family:'Luckiest Guy';font-size:44px;box-shadow:5px 5px 0 var(--blk);transform:rotate(-12deg);animation:spin69 9s linear infinite}
+.tag69 small{position:absolute;bottom:16px;font-family:'Bungee';font-size:10px}
+@keyframes spin69{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(8deg) scale(1.06)}}
+
+/* speech bubbles */
+.bub{position:absolute;z-index:3;background:#fff;border:4px solid var(--blk);border-radius:22px;padding:.5em .9em;font-family:'Luckiest Guy';font-size:clamp(20px,2.2vw,28px);line-height:1;letter-spacing:.02em;box-shadow:5px 5px 0 var(--blk);white-space:nowrap;opacity:0;transform:scale(.3) rotate(-8deg);transform-origin:var(--o,20% 100%)}
+.bub::after{content:"";position:absolute;width:22px;height:22px;background:inherit;border:inherit;border-top:0;border-left:0;bottom:-13px;left:var(--tx,26px);transform:rotate(45deg) skew(10deg,10deg)}
+.bub.y{background:var(--yel)}
+.bub.r{background:var(--red);color:#fff}
+.bub.on,.hero-art .bub{animation:pop .5s var(--ease) forwards}
+@keyframes pop{0%{opacity:0;transform:scale(.3) rotate(-8deg)}100%{opacity:1;transform:scale(1) rotate(var(--rot,-3deg))}}
+.hero-art .b1{top:-40px;left:-60px;animation-delay:.6s}
+.hero-art .b2{top:30px;right:-30px;--o:80% 100%;--tx:70%;--rot:4deg;animation-delay:1.6s}
+.hero-art .b3{bottom:-34px;left:-40px;--rot:-2deg;animation-delay:2.6s;font-size:clamp(24px,2.8vw,36px)}
+.hero-art .b2.out,.hero-art .b1.out{animation:popout .35s ease forwards}
+@keyframes popout{to{opacity:0;transform:scale(.6) rotate(6deg)}}
+.scrollhint{position:absolute;left:50%;bottom:18px;z-index:5;transform:translateX(-50%);font-family:'Bungee';font-size:12px;color:#fff;display:flex;flex-direction:column;align-items:center;gap:6px;text-shadow:0 2px 0 var(--blk)}
+.scrollhint i{width:26px;height:40px;border:3px solid #fff;border-radius:14px;position:relative;box-shadow:0 2px 0 var(--blk)}
+.scrollhint i::after{content:"";position:absolute;left:50%;top:7px;width:6px;height:8px;margin-left:-3px;border-radius:3px;background:#fff;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+@media (max-width:900px){
+  .hero-in{grid-template-columns:1fr;text-align:left;padding:110px 0 190px}
+  .hero-art{order:-1;width:min(300px,70vw);margin:20px 0 34px}
+  .hero-art .b1{left:-20px}
+  .hero-art .b2{right:-10px}
+  .tag69{width:84px;height:84px;font-size:32px;right:-14px}
+  .tag69 small{bottom:11px;font-size:8px}
+}
+
+/* low-poly zigzag edges */
+.edge-top{clip-path:polygon(0 30px,6% 0,14% 26px,22% 4px,31% 30px,40% 0,52% 28px,61% 6px,70% 30px,79% 2px,88% 26px,95% 4px,100% 24px,100% 100%,0 100%);margin-top:-30px;padding-top:30px}
+
+/* ===== LORE ===== */
+#lore{position:relative;z-index:2;background-color:var(--red);background-image:radial-gradient(rgba(0,0,0,.16) 2px,transparent 2.5px);background-size:18px 18px;color:#fff;padding:130px 0 120px}
+.lore-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.lore-copy p{font-size:20px;margin-bottom:16px;max-width:34em}
+.lore-copy p b{color:var(--yel)}
+.panel{background:var(--cream);color:var(--blk);border:var(--b);border-radius:20px;box-shadow:8px 8px 0 var(--blk);overflow:hidden}
+.panel img{width:100%;aspect-ratio:3/1;object-fit:cover;border-bottom:var(--b)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.stats>div{padding:14px 18px;border-right:3px solid var(--blk);border-bottom:3px solid var(--blk)}
+.stats>div:nth-child(2n){border-right:0}
+.stats>div:nth-last-child(-n+2){border-bottom:0}
+.stats small{display:block;font-family:'Bungee';font-size:11px;color:var(--red2)}
+.stats strong{font-family:'Luckiest Guy';font-size:24px;font-weight:400;letter-spacing:.02em}
+.lore-art{position:relative}
+.lore-art .panel{transform:rotate(-2deg)}
+.lore-art .bub{opacity:1;transform:rotate(4deg);position:absolute;top:-30px;right:-6px;animation:none}
+.hp{height:16px;border:3px solid var(--blk);border-radius:8px;background:#fff;overflow:hidden;margin-top:6px}
+.hp i{display:block;height:100%;width:69%;background:repeating-linear-gradient(90deg,var(--red) 0 14px,var(--red2) 14px 18px)}
+@media (max-width:900px){.lore-grid{grid-template-columns:1fr}}
+
+/* ===== TRAILS (journey + buy) ===== */
+.trail-sec{position:relative;overflow:hidden}
+.trail-sec svg.trail{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:1}
+.trail .ghost{fill:none;stroke:rgba(20,16,16,.18);stroke-width:10;stroke-linecap:round;stroke-dasharray:2 22}
+.trail .ink0{fill:none;stroke:var(--blk);stroke-width:30;stroke-linecap:round;stroke-linejoin:round}
+.trail .ink1{fill:none;stroke:var(--red);stroke-width:18;stroke-linecap:round;stroke-linejoin:round}
+.trail .wp circle{fill:#fff;stroke:var(--blk);stroke-width:5;transition:fill .3s}
+.trail .wp.on circle{fill:var(--yel)}
+.trail .wp text{font-family:'Luckiest Guy';font-size:22px;text-anchor:middle;dominant-baseline:central;fill:var(--blk)}
+.rider{position:absolute;left:0;top:0;z-index:3;width:120px;pointer-events:none;will-change:transform;transition:opacity .3s}
+.rider.idle{opacity:0}
+.rider .bob{animation:bob .5s ease-in-out infinite alternate;transform-origin:50% 100%}
+.rider img{width:100%;filter:drop-shadow(4px 5px 0 rgba(0,0,0,.85))}
+.rider.left img{transform:scaleX(-1)}
+@keyframes bob{from{transform:translateY(0) rotate(-4deg)}to{transform:translateY(-8px) rotate(4deg)}}
+.stop{position:absolute;z-index:2;width:min(420px,38vw);opacity:0;transform:translateY(30px) scale(.95);transition:opacity .5s var(--out),transform .6s var(--ease)}
+.stop.on{opacity:1;transform:none}
+.stop .card{background:#fff;border:var(--b);border-radius:20px;box-shadow:var(--sh);padding:20px 22px}
+.stop h3{font-family:'Bungee';font-size:15px;color:var(--red2);margin-bottom:4px}
+.stop h4{font-family:'Luckiest Guy';font-weight:400;font-size:30px;line-height:1;margin-bottom:8px;letter-spacing:.02em}
+.stop p{font-size:17px}
+.stop .talk{position:relative;height:118px}
+.stop .talk .bub{bottom:16px}
+.stop .talk .q{left:-8px}
+.stop .talk .a{left:auto;right:-18px;bottom:62px;--o:80% 100%;--tx:70%;--rot:5deg}
+.stop.on .talk .q{animation:pop .45s var(--ease) .15s forwards}
+.stop.on .talk .a{animation:pop .45s var(--ease) .75s forwards}
+@media (max-width:760px){
+  .stop{width:auto}
+  .rider{width:70px}
+  .stop .talk .bub{font-size:19px}
+  .stop .talk .a{right:-2px}
+  .stop .talk .q{left:-2px}
+}
+
+/* journey */
+#journey{background-color:var(--cream);background-image:linear-gradient(135deg,rgba(255,210,31,.35) 25%,transparent 25%),linear-gradient(225deg,rgba(255,210,31,.35) 25%,transparent 25%);background-size:80px 80px;padding:120px 0 0}
+#journey .intro{text-align:center;position:relative;z-index:2}
+#journey .intro p{max-width:36em;margin:0 auto;font-size:20px}
+#journey .intro .chunk{color:var(--red)}
+.journey-track{position:relative;height:3600px;margin-top:30px}
+.deco{position:absolute;z-index:0;pointer-events:none;will-change:transform}
+.deco svg{width:100%;height:100%}
+.finale{position:relative;z-index:2;text-align:center;padding:40px 0 140px}
+.finale .lg{font-size:clamp(50px,9vw,120px)}
+@media (max-width:760px){.journey-track{height:3200px}}
+
+/* ===== QUEEN ===== */
+#queen{background:linear-gradient(180deg,var(--grn) 0%,var(--grn3) 100%);color:#fff;padding:130px 0 120px;position:relative;overflow:hidden}
+#queen .head{text-align:center;margin-bottom:34px}
+#queen .head p{max-width:34em;margin:0 auto;font-size:20px}
+.qgame{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:760px;margin:0 auto}
+.tile{position:relative;aspect-ratio:1;perspective:700px}
+.tile .in{position:absolute;inset:0;transition:transform .55s var(--ease);transform-style:preserve-3d}
+.tile.open .in{transform:rotateY(180deg)}
+.tile .fa,.tile .ba{position:absolute;inset:0;border:var(--b);border-radius:18px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:grid;place-items:center;box-shadow:5px 5px 0 var(--blk);overflow:hidden}
+.tile .fa{background:var(--grn2)}
+.tile .fa svg{width:86%;height:86%;transition:transform .25s var(--ease)}
+.tile:hover .fa svg{transform:scale(1.08) rotate(-3deg)}
+.tile .ba{transform:rotateY(180deg);background:#fff;color:var(--blk);text-align:center;padding:8px;font-family:'Luckiest Guy';font-size:clamp(16px,2.4vw,26px);line-height:1;letter-spacing:.02em}
+.tile .ba.hot{background:var(--red);color:#fff}
+.tile .ba.warm{background:var(--yel)}
+.tile .ba.cold{background:#CDE8FF}
+.tile .ba.queen{background:var(--yel)}
+.tile .ba.queen svg{width:62%;margin:0 auto 4px}
+.tile button{position:absolute;inset:0;z-index:2;border-radius:18px}
+.tile.open button{pointer-events:none}
+.qbar{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;margin-top:30px;font-family:'Bungee';font-size:15px}
+.qbar .count{background:var(--blk);color:var(--yel);padding:.6em 1em;border-radius:12px;border:3px solid var(--yel)}
+.qwin{max-width:640px;margin:26px auto 0;text-align:center;background:var(--yel);color:var(--blk);border:var(--b);border-radius:20px;padding:18px 22px;box-shadow:var(--sh);font-size:19px;display:none}
+.qwin.on{display:block;animation:pop .5s var(--ease) forwards}
+.qwin b{font-family:'Luckiest Guy';font-weight:400;font-size:32px;display:block;line-height:1;margin-bottom:6px;letter-spacing:.02em}
+.crown-fx{position:fixed;z-index:80;pointer-events:none;width:34px;top:0;left:0}.crown-fx svg{width:100%;display:block}
+@media (max-width:560px){.qgame{grid-template-columns:repeat(3,1fr);gap:12px}}
+
+/* ===== MEMES ===== */
+#memes{background:var(--blk);color:#fff;padding:130px 0 130px}
+#memes .head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+#memes .head p{max-width:24em;font-size:19px;color:#f3e6c4}
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.meme{position:relative;transform:rotate(var(--t,0deg)) translate3d(0,0,0);transition:transform .35s var(--ease),z-index 0s;cursor:zoom-in}
+.meme:nth-child(4n+1){--t:-2.4deg}.meme:nth-child(4n+2){--t:1.8deg}.meme:nth-child(4n+3){--t:-1.2deg}.meme:nth-child(4n){--t:2.6deg}
+.meme:nth-child(3n){margin-top:22px}
+.meme .ph{background:#fff;border:4px solid #fff;outline:4px solid var(--blk);box-shadow:8px 8px 0 var(--red);border-radius:6px;overflow:hidden}
+.meme img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .5s var(--out)}
+.meme figcaption{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%) rotate(calc(var(--t) * -1.5));background:var(--yel);color:var(--blk);font-family:'Bungee';font-size:11px;padding:.45em .8em;border:3px solid var(--blk);white-space:nowrap;max-width:94%;overflow:hidden;text-overflow:ellipsis}
+.meme:hover,.meme:focus-within{transform:rotate(0) scale(1.05);z-index:3}
+.meme:hover img{transform:scale(1.06)}
+.meme button{position:absolute;inset:0;z-index:2}
+@media (max-width:900px){.wall{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.wall{grid-template-columns:repeat(2,1fr);gap:20px}.meme:nth-child(3n){margin-top:0}}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(20,16,16,.92);display:none;align-items:center;justify-content:center;padding:70px 20px 20px}
+.lb.on{display:flex}
+.lb figure{max-width:min(860px,92vw);text-align:center}
+.lb img{max-height:76vh;width:auto;margin:0 auto;border:5px solid #fff;outline:5px solid var(--blk);box-shadow:10px 10px 0 var(--red);border-radius:8px;animation:pop .35s var(--ease)}
+.lb figcaption{margin-top:20px;font-family:'Bungee';color:var(--yel);font-size:15px}
+.lb .x,.lb .pv,.lb .nx{position:absolute;width:56px;height:56px;border-radius:16px;background:var(--yel);border:var(--b);box-shadow:4px 4px 0 #000;font-family:'Luckiest Guy';font-size:30px;display:grid;place-items:center;color:var(--blk)}
+.lb .x{top:16px;right:16px}
+.lb .pv{left:16px;top:50%;margin-top:-28px}
+.lb .nx{right:16px;top:50%;margin-top:-28px}
+
+/* ===== BUY ===== */
+#buy{background-color:var(--yel);background-image:radial-gradient(rgba(0,0,0,.08) 2px,transparent 2.5px);background-size:22px 22px;padding:130px 0 0}
+#buy .head{text-align:center;position:relative;z-index:2}
+#buy .head p{font-size:20px;max-width:32em;margin:0 auto}
+.buy-track{position:relative;height:1900px;margin-top:20px}
+#buy .stop .num{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--red);color:#fff;border:3px solid var(--blk);font-family:'Luckiest Guy';font-size:26px;margin-bottom:10px;box-shadow:3px 3px 0 var(--blk)}
+#buy .stop .card{background:var(--cream)}
+#buy .stop a{font-weight:600}
+#buy .trail .ink1{stroke:var(--blk)}
+#buy .trail .ink0{stroke:var(--red);stroke-width:30}
+#buy .after{text-align:center;padding:20px 0 120px;position:relative;z-index:2}
+#buy .after .ca{margin:0 auto 18px}
+@media (max-width:760px){.buy-track{height:2100px}}
+
+/* ===== TOKENOMICS ===== */
+#tokens{background:var(--red);background-image:repeating-linear-gradient(-45deg,rgba(0,0,0,.08) 0 18px,transparent 18px 36px);padding:130px 0 140px;color:#fff;position:relative;overflow:hidden}
+#tokens .head{text-align:center}
+.badge-zone{position:relative;display:grid;place-items:center;min-height:620px;margin:10px auto 0;max-width:980px}
+.badge{position:relative;width:min(520px,86vw);aspect-ratio:1}
+.badge .burst{position:absolute;inset:0;animation:rot 40s linear infinite;filter:drop-shadow(10px 10px 0 var(--blk))}
+@keyframes rot{to{transform:rotate(360deg)}}
+.badge .core{position:absolute;inset:19%;border-radius:50%;background:var(--blk);border:6px solid var(--blk);display:grid;place-items:center;text-align:center;box-shadow:inset 0 0 0 8px var(--yel),inset 0 0 0 14px var(--blk)}
+.badge .core small{display:block;font-family:'Bungee';font-size:clamp(11px,1.5vw,15px);color:var(--yel)}
+.badge .core strong{display:block;font-family:'Luckiest Guy';font-weight:400;font-size:clamp(44px,8.5vw,92px);line-height:.9;color:#fff;letter-spacing:.02em}
+.chip{position:absolute;z-index:2;background:#fff;color:var(--blk);border:var(--b);border-radius:18px;padding:12px 18px;box-shadow:var(--sh);text-align:center;transition:transform .3s var(--ease)}
+.chip:hover{transform:scale(1.08) rotate(0deg)!important}
+.chip strong{display:block;font-family:'Luckiest Guy';font-weight:400;font-size:34px;line-height:1;letter-spacing:.02em}
+.chip small{font-family:'Bungee';font-size:11px}
+.chip.c1{left:2%;top:8%;transform:rotate(-6deg);background:var(--yel)}
+.chip.c2{right:2%;top:12%;transform:rotate(5deg)}
+.chip.c3{left:5%;bottom:10%;transform:rotate(4deg)}
+.chip.c4{right:4%;bottom:6%;transform:rotate(-4deg);background:var(--yel)}
+.fine{text-align:center;font-size:14px;opacity:.9;margin-top:20px}
+@media (max-width:900px){
+  .badge-zone{display:flex;flex-direction:column;gap:16px;min-height:0}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;margin-top:18px}
+  .chip{position:relative;inset:auto!important}
+}
+
+/* ===== SOCIALS / FOOTER ===== */
+#socials{background:var(--blk);color:#fff;padding:120px 0 40px;text-align:center;position:relative}
+#socials p{font-size:20px;max-width:30em;margin:0 auto 30px;color:#f3e6c4}
+.soc{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.soc .btn{font-size:17px}
+.soc .btn:nth-child(2){background:var(--red);color:#fff}
+.soc .btn:nth-child(3){background:#fff}
+.soc .btn:nth-child(4){background:var(--grn2);color:#fff}
+.ridge{display:block;width:100%;height:160px;margin-top:80px}
+footer{background:#8E1420;color:#ffe9d6;padding:30px 0 60px;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start}
+footer img{width:72px;border-radius:16px;border:3px solid var(--blk)}
+footer p{margin-bottom:8px;max-width:70em}
+footer b{font-family:'Bungee';font-weight:400;color:var(--yel)}
+@media (max-width:640px){footer .wrap{grid-template-columns:1fr}}
+
+.toast{position:fixed;left:50%;bottom:24px;z-index:120;transform:translate(-50%,140%);background:var(--blk);color:var(--yel);font-family:'Bungee';font-size:14px;border:3px solid var(--yel);border-radius:14px;padding:12px 18px;transition:transform .4s var(--ease)}
+.toast.on{transform:translate(-50%,0)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .7s var(--out),transform .8s var(--out)}
+.rv.in{opacity:1;transform:none}
+
+
+/* ---------- NFT army (added) ---------- */
+#nfts{background-color:var(--red);background-image:radial-gradient(rgba(0,0,0,.16) 2px,transparent 2.5px);background-size:18px 18px;color:#fff;padding:130px 0 120px;overflow:hidden}
+#nfts .head p{color:#fff}
+.nft-row{overflow:hidden;padding:22px 0}
+.nft-track{display:flex;gap:26px;width:max-content;will-change:transform}
+.nft{position:relative;flex:none;width:220px;margin:0;transform:rotate(var(--t,0deg));transition:transform .3s var(--ease);cursor:zoom-in}
+.nft:nth-child(odd){--t:-3deg}.nft:nth-child(even){--t:2.5deg}
+.nft:hover{transform:rotate(0) scale(1.06);z-index:2}
+.nft img{display:block;width:100%;height:auto;border:5px solid var(--blk);border-radius:18px;box-shadow:7px 7px 0 var(--blk);background:#fff}
+.nft figcaption{position:absolute;left:12px;bottom:12px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis;background:var(--yel);color:var(--blk);font-family:'Bungee';font-size:11px;padding:.35em .7em;border:3px solid var(--blk);border-radius:8px}
+.nft button{position:absolute;inset:0;z-index:2}
+.nft-track .clone{pointer-events:none}
+@media (max-width:600px){.nft{width:160px}.nft-track{gap:18px}}
+@media (prefers-reduced-motion:reduce){.nft-row{overflow-x:auto}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:none}
+  .stop{opacity:1;transform:none}
+  .bub{opacity:1;transform:rotate(var(--rot,-3deg))}
+  .hero-art .b1,.hero-art .b2{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav" aria-label="Main">
+  <a class="brand" href="#hero"><img src="favicon.png" alt="" width="42" height="42"><span>$DAWAE</span></a>
+  <div class="links">
+    <a href="#lore">Lore</a><a href="#journey">Da Wae</a><a href="#queen">Da Queen</a><a href="#memes">Memes</a><a href="#buy">How to buy</a><a href="#tokens">Tokenomics</a>
+  </div>
+  <button class="snd" id="snd" aria-pressed="false" title="Toggle clicking sounds"><span class="dot"></span><b>Clicks</b> <span class="st">off</span></button>
+  <a class="btn" href="#buy" data-click>Buy</a>
+</nav>
+
+<div class="meter" aria-hidden="true">
+  <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#3a2a2a" stroke-width="6"/><circle id="mring" cx="20" cy="20" r="16" fill="none" stroke="#FFD21F" stroke-width="6" stroke-dasharray="100.5" stroke-dashoffset="100.5" transform="rotate(-90 20 20)" stroke-linecap="round"/></svg>
+  <div>Wae found<br><span class="n" id="mnum">0%</span></div>
+</div>
+
+<!-- ===== HERO ===== -->
+<header id="hero">
+  <div class="layer l-sun" data-d="0.12" data-m="6"><svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><polygon points="1080,170 1170,170 1161,209" fill="#FFE45C"/>
+<polygon points="1080,170 1161,209 1136,240" fill="#FFF7B8"/>
+<polygon points="1080,170 1136,240 1100,258" fill="#FFE45C"/>
+<polygon points="1080,170 1100,258 1060,258" fill="#FFF7B8"/>
+<polygon points="1080,170 1060,258 1024,240" fill="#FFE45C"/>
+<polygon points="1080,170 1024,240 999,209" fill="#FFF7B8"/>
+<polygon points="1080,170 999,209 990,170" fill="#FFE45C"/>
+<polygon points="1080,170 990,170 999,131" fill="#FFF7B8"/>
+<polygon points="1080,170 999,131 1024,100" fill="#FFE45C"/>
+<polygon points="1080,170 1024,100 1060,82" fill="#FFF7B8"/>
+<polygon points="1080,170 1060,82 1100,82" fill="#FFE45C"/>
+<polygon points="1080,170 1100,82 1136,100" fill="#FFF7B8"/>
+<polygon points="1080,170 1136,100 1161,131" fill="#FFE45C"/>
+<polygon points="1080,170 1161,131 1170,170" fill="#FFF7B8"/>
+<polygon points="1180,181 1175,204 1207,199" fill="#FFD21F"/>
+<polygon points="1166,223 1151,242 1182,251" fill="#FFD21F"/>
+<polygon points="1134,255 1113,265 1137,288" fill="#FFD21F"/>
+<polygon points="1092,270 1068,270 1080,300" fill="#FFD21F"/>
+<polygon points="1047,265 1026,255 1023,288" fill="#FFD21F"/>
+<polygon points="1009,242 994,223 978,251" fill="#FFD21F"/>
+<polygon points="985,204 980,181 953,199" fill="#FFD21F"/>
+<polygon points="980,159 985,136 953,141" fill="#FFD21F"/>
+<polygon points="994,117 1009,98 978,89" fill="#FFD21F"/>
+<polygon points="1026,85 1047,75 1023,52" fill="#FFD21F"/>
+<polygon points="1068,70 1092,70 1080,40" fill="#FFD21F"/>
+<polygon points="1113,75 1134,85 1137,52" fill="#FFD21F"/>
+<polygon points="1151,98 1166,117 1182,89" fill="#FFD21F"/>
+<polygon points="1175,136 1180,159 1207,141" fill="#FFD21F"/></svg></div>
+  <div class="layer l-clouds" data-d="0.22" data-m="14"><svg viewBox="0 0 1440 400" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g class="cl"><polygon points="260,160 150,170 190,130" fill="#ffffff"/>
+<polygon points="260,160 190,130 240,100" fill="#FFF3D6"/>
+<polygon points="260,160 240,100 300,115" fill="#FFE7B0"/>
+<polygon points="260,160 300,115 340,140" fill="#ffffff"/>
+<polygon points="260,160 340,140 380,170" fill="#FFF3D6"/>
+<polygon points="150,170 260,160 380,170" fill="#FFE7B0"/></g><g class="cl"><polygon points="820,102 738,110 768,80" fill="#ffffff"/>
+<polygon points="820,102 768,80 805,58" fill="#FFF3D6"/>
+<polygon points="820,102 805,58 850,69" fill="#FFE7B0"/>
+<polygon points="820,102 850,69 880,88" fill="#ffffff"/>
+<polygon points="820,102 880,88 910,110" fill="#FFF3D6"/>
+<polygon points="738,110 820,102 910,110" fill="#FFE7B0"/></g><g class="cl"><polygon points="1260,251 1161,260 1197,224" fill="#ffffff"/>
+<polygon points="1260,251 1197,224 1242,197" fill="#FFF3D6"/>
+<polygon points="1260,251 1242,197 1296,210" fill="#FFE7B0"/>
+<polygon points="1260,251 1296,210 1332,233" fill="#ffffff"/>
+<polygon points="1260,251 1332,233 1368,260" fill="#FFF3D6"/>
+<polygon points="1161,260 1260,251 1368,260" fill="#FFE7B0"/></g><g class="cl"><polygon points="560,234 500,240 522,218" fill="#ffffff"/>
+<polygon points="560,234 522,218 549,202" fill="#FFF3D6"/>
+<polygon points="560,234 549,202 582,210" fill="#FFE7B0"/>
+<polygon points="560,234 582,210 604,224" fill="#ffffff"/>
+<polygon points="560,234 604,224 626,240" fill="#FFF3D6"/>
+<polygon points="500,240 560,234 626,240" fill="#FFE7B0"/></g></svg></div>
+  <div class="layer l-far" data-d="0.32" data-m="20"><svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><polygon points="-40,600 -40,394 266,325 651,416 671,325 731,394 737,229 806,428 846,183 907,387 1331,235 1480,402 1480,600" fill="#8E1420"/>
+<polygon points="-40,394 266,325 252,456" fill="#C42A2A"/>
+<polygon points="266,325 651,416 252,456" fill="#8E1420"/>
+<polygon points="266,325 401,357 259,390" fill="#E04A2E"/>
+<polygon points="144,353 266,325 259,390" fill="#8E1420"/>
+<polygon points="651,416 671,325 672,456" fill="#C42A2A"/>
+<polygon points="671,325 731,394 672,456" fill="#8E1420"/>
+<polygon points="671,325 692,349 671,390" fill="#E04A2E"/>
+<polygon points="663,362 671,325 671,390" fill="#8E1420"/>
+<polygon points="731,394 737,229 725,456" fill="#C42A2A"/>
+<polygon points="737,229 806,428 725,456" fill="#8E1420"/>
+<polygon points="737,229 761,299 731,342" fill="#E04A2E"/>
+<polygon points="735,295 737,229 731,342" fill="#8E1420"/>
+<polygon points="806,428 846,183 827,456" fill="#C42A2A"/>
+<polygon points="846,183 907,387 827,456" fill="#8E1420"/>
+<polygon points="846,183 867,254 836,319" fill="#E04A2E"/>
+<polygon points="830,281 846,183 836,319" fill="#C42A2A"/>
+<polygon points="907,387 1331,235 1328,456" fill="#C42A2A"/>
+<polygon points="1331,235 1480,402 1328,456" fill="#8E1420"/>
+<polygon points="1331,235 1383,294 1330,345" fill="#E04A2E"/>
+<polygon points="1161,296 1331,235 1330,345" fill="#C42A2A"/></svg></div>
+  <div class="layer l-mid" data-d="0.18" data-m="32"><svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><polygon points="-40,600 -40,497 36,362 120,487 188,384 276,478 318,401 610,498 640,354 655,482 763,368 853,481 1285,333 1332,489 1366,356 1480,489 1480,600" fill="#1A0A0A"/>
+<polygon points="-40,497 36,362 39,515" fill="#3B1414"/>
+<polygon points="36,362 120,487 39,515" fill="#1A0A0A"/>
+<polygon points="36,362 65,406 37,438" fill="#5A1E1A"/>
+<polygon points="5,416 36,362 37,438" fill="#3B1414"/>
+<polygon points="120,487 188,384 180,515" fill="#3B1414"/>
+<polygon points="188,384 276,478 180,515" fill="#1A0A0A"/>
+<polygon points="188,384 219,417 184,449" fill="#5A1E1A"/>
+<polygon points="161,425 188,384 184,449" fill="#1A0A0A"/>
+<polygon points="276,478 318,401 317,515" fill="#3B1414"/>
+<polygon points="318,401 610,498 317,515" fill="#1A0A0A"/>
+<polygon points="318,401 420,435 318,458" fill="#5A1E1A"/>
+<polygon points="302,431 318,401 318,458" fill="#3B1414"/>
+<polygon points="610,498 640,354 644,515" fill="#3B1414"/>
+<polygon points="640,354 655,482 644,515" fill="#1A0A0A"/>
+<polygon points="640,354 645,399 642,434" fill="#5A1E1A"/>
+<polygon points="628,412 640,354 642,434" fill="#3B1414"/>
+<polygon points="655,482 763,368 769,515" fill="#3B1414"/>
+<polygon points="763,368 853,481 769,515" fill="#1A0A0A"/>
+<polygon points="763,368 795,407 766,441" fill="#5A1E1A"/>
+<polygon points="720,414 763,368 766,441" fill="#1A0A0A"/>
+<polygon points="853,481 1285,333 1272,515" fill="#3B1414"/>
+<polygon points="1285,333 1332,489 1272,515" fill="#1A0A0A"/>
+<polygon points="1285,333 1301,388 1279,424" fill="#5A1E1A"/>
+<polygon points="1112,392 1285,333 1279,424" fill="#1A0A0A"/>
+<polygon points="1332,489 1366,356 1379,515" fill="#3B1414"/>
+<polygon points="1366,356 1480,489 1379,515" fill="#1A0A0A"/>
+<polygon points="1366,356 1406,403 1372,436" fill="#5A1E1A"/>
+<polygon points="1352,410 1366,356 1372,436" fill="#1A0A0A"/></svg></div>
+  <div class="wrap hero-in">
+    <div>
+      <h1 class="lg"><span class="q">Do you know</span><span class="big chunk">DA WAE?</span></h1>
+      <p class="lead">Knuckles, the clicking red echidna from 2018 VR, never stopped looking. Now he has a crown, a gold <b>69</b> chain and a ticker. Follow him down the path. Ticker <b>$DAWAE</b> on Solana.</p>
+      <div class="ca" role="group" aria-label="Contract address"><span class="lab">CA</span><code class="ca-text">coming soon</code><button class="copy" type="button">Copy</button></div>
+      <div class="cta">
+        <a class="btn red" href="#journey" data-click><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>Follow da wae</a>
+        <a class="btn" href="#buy" data-click>Buy $DAWAE</a>
+        <button class="btn blk" type="button" id="clickme">*click click*</button>
+      </div>
+    </div>
+    <div class="hero-art">
+      <span class="bub b1">is this da wae?</span>
+      <span class="bub b2 y">no.</span>
+      <div class="frame" id="heroframe"><img src="hero.jpg" alt="Knuckles wearing a gold chain with a 69 pendant" width="900" height="900" fetchpriority="high"></div>
+      <div class="tag69">69<small>DA WAE</small></div>
+      <span class="bub b3 r">THIS is da wae.</span>
+    </div>
+  </div>
+  <div class="layer l-front" data-d="0.04" data-m="48"><svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><polygon points="-40,600 -40,550 132,506 155,559 406,537 532,557 545,526 639,553 742,507 760,554 865,514 890,554 909,539 982,555 983,531 1060,556 1202,540 1212,553 1382,504 1480,559 1480,600" fill="#146B2E"/>
+<polygon points="-40,550 132,506 135,566" fill="#2BB04F"/>
+<polygon points="132,506 155,559 135,566" fill="#146B2E"/>
+<polygon points="132,506 140,525 134,536" fill="#1E8A3C"/>
+<polygon points="63,524 132,506 134,536" fill="#146B2E"/>
+<polygon points="155,559 406,537 400,566" fill="#2BB04F"/>
+<polygon points="406,537 532,557 400,566" fill="#146B2E"/>
+<polygon points="406,537 450,544 403,551" fill="#1E8A3C"/>
+<polygon points="306,546 406,537 403,551" fill="#146B2E"/>
+<polygon points="532,557 545,526 560,566" fill="#2BB04F"/>
+<polygon points="545,526 639,553 560,566" fill="#146B2E"/>
+<polygon points="545,526 578,535 552,546" fill="#1E8A3C"/>
+<polygon points="540,538 545,526 552,546" fill="#2BB04F"/>
+<polygon points="639,553 742,507 757,566" fill="#2BB04F"/>
+<polygon points="742,507 760,554 757,566" fill="#146B2E"/>
+<polygon points="742,507 748,524 750,536" fill="#1E8A3C"/>
+<polygon points="701,525 742,507 750,536" fill="#146B2E"/>
+<polygon points="760,554 865,514 874,566" fill="#2BB04F"/>
+<polygon points="865,514 890,554 874,566" fill="#146B2E"/>
+<polygon points="865,514 874,528 869,540" fill="#1E8A3C"/>
+<polygon points="823,530 865,514 869,540" fill="#2BB04F"/>
+<polygon points="890,554 909,539 909,566" fill="#2BB04F"/>
+<polygon points="909,539 982,555 909,566" fill="#146B2E"/>
+<polygon points="909,539 934,544 909,552" fill="#1E8A3C"/>
+<polygon points="901,545 909,539 909,552" fill="#2BB04F"/>
+<polygon points="982,555 983,531 988,566" fill="#2BB04F"/>
+<polygon points="983,531 1060,556 988,566" fill="#146B2E"/>
+<polygon points="983,531 1010,540 986,549" fill="#1E8A3C"/>
+<polygon points="983,541 983,531 986,549" fill="#146B2E"/>
+<polygon points="1060,556 1202,540 1210,566" fill="#2BB04F"/>
+<polygon points="1202,540 1212,553 1210,566" fill="#146B2E"/>
+<polygon points="1202,540 1205,544 1206,553" fill="#1E8A3C"/>
+<polygon points="1145,546 1202,540 1206,553" fill="#2BB04F"/>
+<polygon points="1212,553 1382,504 1370,566" fill="#2BB04F"/>
+<polygon points="1382,504 1480,559 1370,566" fill="#146B2E"/>
+<polygon points="1382,504 1416,523 1376,535" fill="#1E8A3C"/>
+<polygon points="1314,524 1382,504 1376,535" fill="#2BB04F"/><polygon points="54,575 86,575 92,533 62,533" fill="#3a1a0c"/>
+<polygon points="62,533 92,533 99,491 72,491" fill="#5a2a12"/>
+<polygon points="72,491 99,491 107,448 83,448" fill="#3a1a0c"/>
+<polygon points="83,448 107,448 117,406 95,406" fill="#5a2a12"/>
+<polygon points="95,406 117,406 127,364 108,364" fill="#3a1a0c"/>
+<polygon points="108,364 127,364 138,322 122,322" fill="#5a2a12"/>
+<polygon points="130,322 66,298 -10,373" fill="#1E8A3C"/>
+<polygon points="130,322 67,338 -10,373" fill="#146B2E"/>
+<polygon points="130,322 81,281 -2,319" fill="#2BB04F"/>
+<polygon points="130,322 64,318 -2,319" fill="#146B2E"/>
+<polygon points="130,322 113,269 45,259" fill="#1E8A3C"/>
+<polygon points="130,322 79,291 45,259" fill="#146B2E"/>
+<polygon points="130,322 153,278 124,236" fill="#2BB04F"/>
+<polygon points="130,322 112,280 124,236" fill="#146B2E"/>
+<polygon points="130,322 191,294 217,256" fill="#1E8A3C"/>
+<polygon points="130,322 156,273 217,256" fill="#146B2E"/>
+<polygon points="130,322 195,326 249,318" fill="#2BB04F"/>
+<polygon points="130,322 177,290 249,318" fill="#146B2E"/>
+<polygon points="130,322 193,353 278,382" fill="#1E8A3C"/>
+<polygon points="130,322 198,313 278,382" fill="#146B2E"/><polygon points="199,575 221,575 215,546 194,546" fill="#3a1a0c"/>
+<polygon points="194,546 215,546 208,516 189,516" fill="#5a2a12"/>
+<polygon points="189,516 208,516 200,487 183,487" fill="#3a1a0c"/>
+<polygon points="183,487 200,487 191,458 176,458" fill="#5a2a12"/>
+<polygon points="176,458 191,458 182,428 168,428" fill="#3a1a0c"/>
+<polygon points="168,428 182,428 172,399 160,399" fill="#5a2a12"/>
+<polygon points="166,399 117,382 57,433" fill="#1E8A3C"/>
+<polygon points="166,399 117,410 57,433" fill="#146B2E"/>
+<polygon points="166,399 132,371 75,397" fill="#2BB04F"/>
+<polygon points="166,399 120,396 75,397" fill="#146B2E"/>
+<polygon points="166,399 156,363 110,357" fill="#1E8A3C"/>
+<polygon points="166,399 132,378 110,357" fill="#146B2E"/>
+<polygon points="166,399 186,374 171,347" fill="#2BB04F"/>
+<polygon points="166,399 157,372 171,347" fill="#146B2E"/>
+<polygon points="166,399 203,377 214,351" fill="#1E8A3C"/>
+<polygon points="166,399 178,365 214,351" fill="#146B2E"/>
+<polygon points="166,399 217,399 262,391" fill="#2BB04F"/>
+<polygon points="166,399 204,375 262,391" fill="#146B2E"/>
+<polygon points="166,399 210,416 264,431" fill="#1E8A3C"/>
+<polygon points="166,399 210,388 264,431" fill="#146B2E"/><polygon points="1217,575 1243,575 1250,540 1226,540" fill="#3a1a0c"/>
+<polygon points="1226,540 1250,540 1258,505 1236,505" fill="#5a2a12"/>
+<polygon points="1236,505 1258,505 1268,470 1247,470" fill="#3a1a0c"/>
+<polygon points="1247,470 1268,470 1278,436 1260,436" fill="#5a2a12"/>
+<polygon points="1260,436 1278,436 1290,401 1274,401" fill="#3a1a0c"/>
+<polygon points="1274,401 1290,401 1302,366 1289,366" fill="#5a2a12"/>
+<polygon points="1296,366 1250,345 1194,405" fill="#1E8A3C"/>
+<polygon points="1296,366 1250,378 1194,405" fill="#146B2E"/>
+<polygon points="1296,366 1249,332 1174,363" fill="#2BB04F"/>
+<polygon points="1296,366 1236,363 1174,363" fill="#146B2E"/>
+<polygon points="1296,366 1287,323 1235,313" fill="#1E8A3C"/>
+<polygon points="1296,366 1257,339 1235,313" fill="#146B2E"/>
+<polygon points="1296,366 1314,328 1291,292" fill="#2BB04F"/>
+<polygon points="1296,366 1281,330 1291,292" fill="#146B2E"/>
+<polygon points="1296,366 1343,347 1361,318" fill="#1E8A3C"/>
+<polygon points="1296,366 1315,328 1361,318" fill="#146B2E"/>
+<polygon points="1296,366 1351,366 1395,357" fill="#2BB04F"/>
+<polygon points="1296,366 1334,337 1395,357" fill="#146B2E"/>
+<polygon points="1296,366 1351,389 1423,410" fill="#1E8A3C"/>
+<polygon points="1296,366 1353,356 1423,410" fill="#146B2E"/><polygon points="1362,575 1398,575 1390,529 1358,529" fill="#3a1a0c"/>
+<polygon points="1358,529 1390,529 1382,483 1352,483" fill="#5a2a12"/>
+<polygon points="1352,483 1382,483 1373,438 1346,438" fill="#3a1a0c"/>
+<polygon points="1346,438 1373,438 1362,392 1339,392" fill="#5a2a12"/>
+<polygon points="1339,392 1362,392 1351,346 1330,346" fill="#3a1a0c"/>
+<polygon points="1330,346 1351,346 1340,300 1321,300" fill="#5a2a12"/>
+<polygon points="1330,300 1261,276 1181,359" fill="#1E8A3C"/>
+<polygon points="1330,300 1264,320 1181,359" fill="#146B2E"/>
+<polygon points="1330,300 1279,253 1187,289" fill="#2BB04F"/>
+<polygon points="1330,300 1258,292 1187,289" fill="#146B2E"/>
+<polygon points="1330,300 1317,252 1252,254" fill="#1E8A3C"/>
+<polygon points="1330,300 1282,278 1252,254" fill="#146B2E"/>
+<polygon points="1330,300 1362,259 1340,214" fill="#2BB04F"/>
+<polygon points="1330,300 1318,256 1340,214" fill="#146B2E"/>
+<polygon points="1330,300 1393,265 1417,222" fill="#1E8A3C"/>
+<polygon points="1330,300 1355,244 1417,222" fill="#146B2E"/>
+<polygon points="1330,300 1412,301 1484,287" fill="#2BB04F"/>
+<polygon points="1330,300 1392,262 1484,287" fill="#146B2E"/>
+<polygon points="1330,300 1402,331 1493,360" fill="#1E8A3C"/>
+<polygon points="1330,300 1405,287 1493,360" fill="#146B2E"/><polygon points="150,579 82,590 98,556" fill="#146B2E"/>
+<polygon points="150,579 98,556 121,540" fill="#1E8A3C"/>
+<polygon points="150,579 121,540 150,544" fill="#2BB04F"/>
+<polygon points="150,579 150,544 185,537" fill="#146B2E"/>
+<polygon points="150,579 185,537 201,563" fill="#1E8A3C"/>
+<polygon points="150,579 201,563 223,590" fill="#2BB04F"/>
+<polygon points="82,590 150,579 223,590" fill="#146B2E"/><polygon points="400,583 353,590 360,574" fill="#146B2E"/>
+<polygon points="400,583 360,574 375,551" fill="#1E8A3C"/>
+<polygon points="400,583 375,551 400,558" fill="#2BB04F"/>
+<polygon points="400,583 400,558 423,560" fill="#146B2E"/>
+<polygon points="400,583 423,560 436,566" fill="#1E8A3C"/>
+<polygon points="400,583 436,566 453,590" fill="#2BB04F"/>
+<polygon points="353,590 400,583 453,590" fill="#146B2E"/><polygon points="1000,582 949,590 950,569" fill="#146B2E"/>
+<polygon points="1000,582 950,569 974,551" fill="#1E8A3C"/>
+<polygon points="1000,582 974,551 1000,547" fill="#2BB04F"/>
+<polygon points="1000,582 1000,547 1027,547" fill="#146B2E"/>
+<polygon points="1000,582 1027,547 1039,571" fill="#1E8A3C"/>
+<polygon points="1000,582 1039,571 1045,590" fill="#2BB04F"/>
+<polygon points="949,590 1000,582 1045,590" fill="#146B2E"/><polygon points="1300,578 1226,590 1232,564" fill="#146B2E"/>
+<polygon points="1300,578 1232,564 1269,539" fill="#1E8A3C"/>
+<polygon points="1300,578 1269,539 1300,518" fill="#2BB04F"/>
+<polygon points="1300,578 1300,518 1339,533" fill="#146B2E"/>
+<polygon points="1300,578 1339,533 1365,556" fill="#1E8A3C"/>
+<polygon points="1300,578 1365,556 1366,590" fill="#2BB04F"/>
+<polygon points="1226,590 1300,578 1366,590" fill="#146B2E"/><polygon points="720,585 688,590 689,573" fill="#146B2E"/>
+<polygon points="720,585 689,573 705,568" fill="#1E8A3C"/>
+<polygon points="720,585 705,568 720,565" fill="#2BB04F"/>
+<polygon points="720,585 720,565 738,570" fill="#146B2E"/>
+<polygon points="720,585 738,570 750,578" fill="#1E8A3C"/>
+<polygon points="720,585 750,578 752,590" fill="#2BB04F"/>
+<polygon points="688,590 720,585 752,590" fill="#146B2E"/></svg></div>
+  <a class="scrollhint" href="#lore"><i></i>scroll</a>
+</header>
+
+<!-- ===== LORE ===== -->
+<section id="lore" class="edge-top">
+  <div class="wrap lore-grid">
+    <div class="lore-copy rv">
+      <span class="kicker">Patch notes: 2018</span>
+      <h2 class="title lg chunk">The Lore</h2>
+      <p>Back in 2018, VR chat rooms were suddenly overrun by a swarm of tiny, red, low-poly echidnas. They travelled in packs. They made clicking noises. And they asked every single player the same question: <b>"Do you know da wae?"</b></p>
+      <p>Nobody knew. The Wae Warriors searched every lobby and every map, followed whoever claimed to know, and called out every fake Knuckles who pointed the wrong way. Then the meme went quiet and drifted off into the internet archive.</p>
+      <p>Now he is back, and this time he has <b>a crown, a gold 69 chain and a contract on Solana</b>. Turns out da wae was a ticker all along.</p>
+    </div>
+    <div class="lore-art rv">
+      <div class="panel">
+        <img src="banner.jpg" alt="$DAWAE meme collage banner" width="1500" height="500" loading="lazy">
+        <div class="stats">
+          <div><small>Class</small><strong>Wae Warrior</strong></div>
+          <div><small>Special move</small><strong>*click click*</strong></div>
+          <div><small>Weakness</small><strong>Fake Knuckles</strong></div>
+          <div><small>Wae found</small><div class="hp"><i></i></div></div>
+        </div>
+      </div>
+      <span class="bub y">spawned 2018. respawned now.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOURNEY ===== -->
+<section id="journey" class="trail-sec">
+  <div class="wrap intro rv">
+    <span class="kicker">Scroll to walk</span>
+    <h2 class="title lg chunk">Follow da wae</h2>
+    <p>Five stops, one red echidna, zero maps. Scroll down and Knuckles walks the path. Turn on <b>Clicks</b> in the menu for the full 2018 lobby experience.</p>
+  </div>
+  <div class="journey-track" data-trail data-rider="knuckles.png">
+    <div class="deco" data-p="0.25" style="left:-40px;top:300px;width:300px;height:400px"><svg viewBox="0 0 300 410" aria-hidden="true"><polygon points="132,400 168,400 161,352 127,352" fill="#3a1a0c"/>
+<polygon points="127,352 161,352 152,305 122,305" fill="#5a2a12"/>
+<polygon points="122,305 152,305 143,257 115,257" fill="#3a1a0c"/>
+<polygon points="115,257 143,257 132,209 108,209" fill="#5a2a12"/>
+<polygon points="108,209 132,209 121,162 99,162" fill="#3a1a0c"/>
+<polygon points="99,162 121,162 109,114 90,114" fill="#5a2a12"/>
+<polygon points="100,114 32,89 -45,175" fill="#1E8A3C"/>
+<polygon points="100,114 36,135 -45,175" fill="#146B2E"/>
+<polygon points="100,114 57,67 -28,105" fill="#2BB04F"/>
+<polygon points="100,114 33,106 -28,105" fill="#146B2E"/>
+<polygon points="100,114 81,52 5,37" fill="#1E8A3C"/>
+<polygon points="100,114 42,75 5,37" fill="#146B2E"/>
+<polygon points="100,114 126,57 96,2" fill="#2BB04F"/>
+<polygon points="100,114 81,58 96,2" fill="#146B2E"/>
+<polygon points="100,114 165,89 192,50" fill="#1E8A3C"/>
+<polygon points="100,114 127,63 192,50" fill="#146B2E"/>
+<polygon points="100,114 180,118 250,107" fill="#2BB04F"/>
+<polygon points="100,114 160,77 250,107" fill="#146B2E"/>
+<polygon points="100,114 183,145 288,174" fill="#1E8A3C"/>
+<polygon points="100,114 185,100 288,174" fill="#146B2E"/><polygon points="150,393 65,405 81,374" fill="#146B2E"/>
+<polygon points="150,393 81,374 108,353" fill="#1E8A3C"/>
+<polygon points="150,393 108,353 150,353" fill="#2BB04F"/>
+<polygon points="150,393 150,353 193,353" fill="#146B2E"/>
+<polygon points="150,393 193,353 208,376" fill="#1E8A3C"/>
+<polygon points="150,393 208,376 227,405" fill="#2BB04F"/>
+<polygon points="65,405 150,393 227,405" fill="#146B2E"/></svg></div>
+    <div class="deco" data-p="-0.15" style="right:-30px;top:900px;width:260px;height:350px"><svg viewBox="0 0 300 410" aria-hidden="true"><polygon points="135,400 165,400 164,360 136,360" fill="#3a1a0c"/>
+<polygon points="136,360 164,360 163,319 137,319" fill="#5a2a12"/>
+<polygon points="137,319 163,319 161,279 138,279" fill="#3a1a0c"/>
+<polygon points="138,279 161,279 160,239 139,239" fill="#5a2a12"/>
+<polygon points="139,239 160,239 159,198 140,198" fill="#3a1a0c"/>
+<polygon points="140,198 159,198 157,158 141,158" fill="#5a2a12"/>
+<polygon points="149,158 80,137 -2,210" fill="#E8202A"/>
+<polygon points="149,158 82,176 -2,210" fill="#A3121C"/>
+<polygon points="149,158 106,120 32,156" fill="#FF4A3A"/>
+<polygon points="149,158 90,155 32,156" fill="#A3121C"/>
+<polygon points="149,158 140,110 82,102" fill="#E8202A"/>
+<polygon points="149,158 106,129 82,102" fill="#A3121C"/>
+<polygon points="149,158 172,117 145,78" fill="#FF4A3A"/>
+<polygon points="149,158 133,118 145,78" fill="#A3121C"/>
+<polygon points="149,158 197,138 210,109" fill="#E8202A"/>
+<polygon points="149,158 164,119 210,109" fill="#A3121C"/>
+<polygon points="149,158 222,160 289,149" fill="#FF4A3A"/>
+<polygon points="149,158 206,125 289,149" fill="#A3121C"/>
+<polygon points="149,158 210,187 292,214" fill="#E8202A"/>
+<polygon points="149,158 215,149 292,214" fill="#A3121C"/><polygon points="130,395 59,405 68,382" fill="#146B2E"/>
+<polygon points="130,395 68,382 99,350" fill="#1E8A3C"/>
+<polygon points="130,395 99,350 130,352" fill="#2BB04F"/>
+<polygon points="130,395 130,352 158,349" fill="#146B2E"/>
+<polygon points="130,395 158,349 193,383" fill="#1E8A3C"/>
+<polygon points="130,395 193,383 185,405" fill="#2BB04F"/>
+<polygon points="59,405 130,395 185,405" fill="#146B2E"/></svg></div>
+    <div class="deco" data-p="0.3" style="left:2%;top:1700px;width:220px;height:220px"><svg viewBox="0 0 300 310" aria-hidden="true"><polygon points="20,300 110,160 150,300" fill="#3B1414"/>
+<polygon points="110,160 220,210 150,300" fill="#1A0A0A"/>
+<polygon points="150,300 220,210 280,300" fill="#5A1E1A"/>
+<polygon points="110,160 170,120 220,210" fill="#8E1420"/></svg></div>
+    <div class="deco" data-p="0.2" style="right:-20px;top:2300px;width:320px;height:420px"><svg viewBox="0 0 300 410" aria-hidden="true"><polygon points="132,400 168,400 161,352 127,352" fill="#3a1a0c"/>
+<polygon points="127,352 161,352 152,305 122,305" fill="#5a2a12"/>
+<polygon points="122,305 152,305 143,257 115,257" fill="#3a1a0c"/>
+<polygon points="115,257 143,257 132,209 108,209" fill="#5a2a12"/>
+<polygon points="108,209 132,209 121,162 99,162" fill="#3a1a0c"/>
+<polygon points="99,162 121,162 109,114 90,114" fill="#5a2a12"/>
+<polygon points="100,114 32,89 -45,175" fill="#1E8A3C"/>
+<polygon points="100,114 36,135 -45,175" fill="#146B2E"/>
+<polygon points="100,114 57,67 -28,105" fill="#2BB04F"/>
+<polygon points="100,114 33,106 -28,105" fill="#146B2E"/>
+<polygon points="100,114 81,52 5,37" fill="#1E8A3C"/>
+<polygon points="100,114 42,75 5,37" fill="#146B2E"/>
+<polygon points="100,114 126,57 96,2" fill="#2BB04F"/>
+<polygon points="100,114 81,58 96,2" fill="#146B2E"/>
+<polygon points="100,114 165,89 192,50" fill="#1E8A3C"/>
+<polygon points="100,114 127,63 192,50" fill="#146B2E"/>
+<polygon points="100,114 180,118 250,107" fill="#2BB04F"/>
+<polygon points="100,114 160,77 250,107" fill="#146B2E"/>
+<polygon points="100,114 183,145 288,174" fill="#1E8A3C"/>
+<polygon points="100,114 185,100 288,174" fill="#146B2E"/><polygon points="150,393 65,405 81,374" fill="#146B2E"/>
+<polygon points="150,393 81,374 108,353" fill="#1E8A3C"/>
+<polygon points="150,393 108,353 150,353" fill="#2BB04F"/>
+<polygon points="150,393 150,353 193,353" fill="#146B2E"/>
+<polygon points="150,393 193,353 208,376" fill="#1E8A3C"/>
+<polygon points="150,393 208,376 227,405" fill="#2BB04F"/>
+<polygon points="65,405 150,393 227,405" fill="#146B2E"/></svg></div>
+    <div class="deco" data-p="-0.2" style="left:-30px;top:2900px;width:240px;height:330px"><svg viewBox="0 0 300 410" aria-hidden="true"><polygon points="135,400 165,400 164,360 136,360" fill="#3a1a0c"/>
+<polygon points="136,360 164,360 163,319 137,319" fill="#5a2a12"/>
+<polygon points="137,319 163,319 161,279 138,279" fill="#3a1a0c"/>
+<polygon points="138,279 161,279 160,239 139,239" fill="#5a2a12"/>
+<polygon points="139,239 160,239 159,198 140,198" fill="#3a1a0c"/>
+<polygon points="140,198 159,198 157,158 141,158" fill="#5a2a12"/>
+<polygon points="149,158 80,137 -2,210" fill="#E8202A"/>
+<polygon points="149,158 82,176 -2,210" fill="#A3121C"/>
+<polygon points="149,158 106,120 32,156" fill="#FF4A3A"/>
+<polygon points="149,158 90,155 32,156" fill="#A3121C"/>
+<polygon points="149,158 140,110 82,102" fill="#E8202A"/>
+<polygon points="149,158 106,129 82,102" fill="#A3121C"/>
+<polygon points="149,158 172,117 145,78" fill="#FF4A3A"/>
+<polygon points="149,158 133,118 145,78" fill="#A3121C"/>
+<polygon points="149,158 197,138 210,109" fill="#E8202A"/>
+<polygon points="149,158 164,119 210,109" fill="#A3121C"/>
+<polygon points="149,158 222,160 289,149" fill="#FF4A3A"/>
+<polygon points="149,158 206,125 289,149" fill="#A3121C"/>
+<polygon points="149,158 210,187 292,214" fill="#E8202A"/>
+<polygon points="149,158 215,149 292,214" fill="#A3121C"/><polygon points="130,395 59,405 68,382" fill="#146B2E"/>
+<polygon points="130,395 68,382 99,350" fill="#1E8A3C"/>
+<polygon points="130,395 99,350 130,352" fill="#2BB04F"/>
+<polygon points="130,395 130,352 158,349" fill="#146B2E"/>
+<polygon points="130,395 158,349 193,383" fill="#1E8A3C"/>
+<polygon points="130,395 193,383 185,405" fill="#2BB04F"/>
+<polygon points="59,405 130,395 185,405" fill="#146B2E"/></svg></div>
+
+    <div class="stop">
+      <div class="talk"><span class="bub q">is this da wae?</span><span class="bub a y">no.</span></div>
+      <div class="card"><h3>Stop 1</h3><h4>The Spawn Point</h4><p>A wild Knuckles loads in. Low-poly, slightly confused, extremely determined. He clicks twice and starts walking.</p></div>
+    </div>
+    <div class="stop">
+      <div class="talk"><span class="bub q">is THIS da wae?</span><span class="bub a y">still no.</span></div>
+      <div class="card"><h3>Stop 2</h3><h4>Fake Knuckles Ridge</h4><p>Someone in a blue skin swears da wae is left. It is not left. The Warriors do what the meme says: spit on him (figuratively) and keep walking.</p></div>
+    </div>
+    <div class="stop">
+      <div class="talk"><span class="bub q">*click click click*</span><span class="bub a r">warmer...</span></div>
+      <div class="card"><h3>Stop 3</h3><h4>The Click Pits</h4><p>Hundreds of Knuckles, all clicking at once. If you turned the sound on, you are hearing it now. If not, the button is up top.</p></div>
+    </div>
+    <div class="stop">
+      <div class="talk"><span class="bub q">where is da queen?</span><span class="bub a y">hiding.</span></div>
+      <div class="card"><h3>Stop 4</h3><h4>The Royal Bushes</h4><p>Every Knuckles quest ends at da queen. She is hiding in the jungle just below this path. <a href="#queen">Go find her</a>.</p></div>
+    </div>
+    <div class="stop">
+      <div class="talk"><span class="bub q">is this...</span><span class="bub a r">THIS is da wae.</span></div>
+      <div class="card"><h3>Stop 5</h3><h4>The Summit</h4><p>Crown on. Chain shining. A ticker with his name on it. After years of asking, Knuckles finally knows da wae, and it ends in <b>$DAWAE</b>.</p></div>
+    </div>
+  </div>
+  <div class="finale rv"><div class="lg chunk r">you know da wae now.</div></div>
+</section>
+
+<!-- ===== QUEEN ===== -->
+<section id="queen" class="edge-top">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="kicker">Mini game</span>
+      <h2 class="title lg chunk">Find da queen</h2>
+      <p>She is behind one of these bushes. Every wrong bush tells you if you are getting warmer or colder. Fewest clicks wins bragging rights.</p>
+    </div>
+    <div class="qgame" id="qgame" aria-label="Find da queen game"></div>
+    <div class="qbar"><span class="count">Clicks: <span id="qn">0</span></span><button class="btn" type="button" id="qreset">Shuffle bushes</button></div>
+    <div class="qwin" id="qwin" role="status" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ===== MEMES ===== -->
+<section id="memes" class="edge-top">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="kicker" style="background:var(--yel);color:var(--blk)">Archive</span><h2 class="title lg chunk">Da meme wall</h2></div>
+      <p>Thirteen pieces from the Wae Warrior archive. Tap any one to blow it up.</p>
+    </div>
+    <div class="wall" id="wall">
+      <figure class="meme rv"><div class="ph"><img src="meme_01.jpg" alt="Desktop login screen meme: did you click da wae?" loading="lazy" width="1000" height="1000"></div><figcaption>did you click da wae?</figcaption><button aria-label="Open meme 1"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_02.jpg" alt="Frog driving at night, Knuckles in the mirror: do you still know da wae?" loading="lazy" width="1000" height="1000"></div><figcaption>late night drive</figcaption><button aria-label="Open meme 2"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_03.jpg" alt="Types of headaches chart, the last one is knowing de wey" loading="lazy" width="1000" height="1000"></div><figcaption>types of headaches</figcaption><button aria-label="Open meme 3"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_04.jpg" alt="Knuckles drawn in a retro paint program on an old desktop" loading="lazy" width="1000" height="1000"></div><figcaption>paint dot wae</figcaption><button aria-label="Open meme 4"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_05.jpg" alt="Knuckles peeking over retro desktop windows: welcome to the nostalgia" loading="lazy" width="1000" height="1000"></div><figcaption>welcome to the nostalgia</figcaption><button aria-label="Open meme 5"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_06.jpg" alt="Knuckles hugging a green candle while rocketing up a chart" loading="lazy" width="1000" height="1000"></div><figcaption>green candle express</figcaption><button aria-label="Open meme 6"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_07.jpg" alt="Knuckles with a 69 chain hugging a smiling green candle" loading="lazy" width="1000" height="1000"></div><figcaption>hug ur candle</figcaption><button aria-label="Open meme 7"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_08.jpg" alt="Giant Knuckles face on red with the words DA WAE" loading="lazy" width="1000" height="1000"></div><figcaption>DA WAE</figcaption><button aria-label="Open meme 8"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_09.jpg" alt="Cartoon Knuckles pointing both fingers up" loading="lazy" width="1000" height="1000"></div><figcaption>both wae</figcaption><button aria-label="Open meme 9"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_10.jpg" alt="Drippy cartoon Knuckles pointing up" loading="lazy" width="1000" height="1000"></div><figcaption>drip check</figcaption><button aria-label="Open meme 10"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_11.jpg" alt="Grinning red cartoon echidna in sneakers" loading="lazy" width="1000" height="1000"></div><figcaption>fake knuckles spotted</figcaption><button aria-label="Open meme 11"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_12.jpg" alt="Red cartoon echidna grinning on a green background" loading="lazy" width="1000" height="1000"></div><figcaption>when the chart knows da wae</figcaption><button aria-label="Open meme 12"></button></figure>
+      <figure class="meme rv"><div class="ph"><img src="meme_13.jpg" alt="Knuckles with a crown, a gold 69 chain and $DAWAE written across his chest" loading="lazy" width="1000" height="1000"></div><figcaption>iced out wae</figcaption><button aria-label="Open meme 13"></button></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NFT ARMY (added) ===== -->
+<section id="nfts" class="edge-top">
+  <div class="wrap">
+    <div class="head rv">
+      <div><span class="kicker">2,222 strong</span><h2 class="title lg chunk">Da Wae Warriors</h2></div>
+      <p>A sample from the 2,222 DAWAE NFT collection. The rows run faster the harder you scroll. Tap any warrior to open it.</p>
+    </div>
+  </div>
+  <div class="nft-row" data-dir="1"><div class="nft-track"><figure class="nft"><img src="nft_01.jpg" alt="DAWAE NFT: red cartoon Knuckles, clicking intensifies" loading="lazy" width="600" height="600"><figcaption>clicking intensifies</figcaption><button aria-label="Open NFT 1"></button></figure><figure class="nft"><img src="nft_02.jpg" alt="DAWAE NFT: red cartoon Knuckles, say less" loading="lazy" width="600" height="600"><figcaption>say less</figcaption><button aria-label="Open NFT 2"></button></figure><figure class="nft"><img src="nft_03.jpg" alt="DAWAE NFT: red cartoon Knuckles, grin of da wae" loading="lazy" width="600" height="600"><figcaption>grin of da wae</figcaption><button aria-label="Open NFT 3"></button></figure><figure class="nft"><img src="nft_04.jpg" alt="DAWAE NFT: red cartoon Knuckles, da queen's guard" loading="lazy" width="600" height="600"><figcaption>da queen's guard</figcaption><button aria-label="Open NFT 4"></button></figure><figure class="nft"><img src="nft_05.jpg" alt="DAWAE NFT: red cartoon Knuckles, sprint mode" loading="lazy" width="600" height="600"><figcaption>sprint mode</figcaption><button aria-label="Open NFT 5"></button></figure><figure class="nft"><img src="nft_06.jpg" alt="DAWAE NFT: red cartoon Knuckles, no thoughts just wae" loading="lazy" width="600" height="600"><figcaption>no thoughts just wae</figcaption><button aria-label="Open NFT 6"></button></figure><figure class="nft"><img src="nft_07.jpg" alt="DAWAE NFT: red cartoon Knuckles, cheeky" loading="lazy" width="600" height="600"><figcaption>cheeky</figcaption><button aria-label="Open NFT 7"></button></figure><figure class="nft"><img src="nft_08.jpg" alt="DAWAE NFT: red cartoon Knuckles, on da wae" loading="lazy" width="600" height="600"><figcaption>on da wae</figcaption><button aria-label="Open NFT 8"></button></figure><figure class="nft"><img src="nft_09.jpg" alt="DAWAE NFT: red cartoon Knuckles, flex" loading="lazy" width="600" height="600"><figcaption>flex</figcaption><button aria-label="Open NFT 9"></button></figure></div></div>
+  <div class="nft-row" data-dir="-1"><div class="nft-track"><figure class="nft"><img src="nft_10.jpg" alt="DAWAE NFT: red cartoon Knuckles, main character" loading="lazy" width="600" height="600"><figcaption>main character</figcaption><button aria-label="Open NFT 10"></button></figure><figure class="nft"><img src="nft_11.jpg" alt="DAWAE NFT: red cartoon Knuckles, road rage" loading="lazy" width="600" height="600"><figcaption>road rage</figcaption><button aria-label="Open NFT 11"></button></figure><figure class="nft"><img src="nft_12.jpg" alt="DAWAE NFT: red cartoon Knuckles, drip warrior" loading="lazy" width="600" height="600"><figcaption>drip warrior</figcaption><button aria-label="Open NFT 12"></button></figure><figure class="nft"><img src="nft_13.jpg" alt="DAWAE NFT: red cartoon Knuckles, spit check" loading="lazy" width="600" height="600"><figcaption>spit check</figcaption><button aria-label="Open NFT 13"></button></figure><figure class="nft"><img src="nft_14.jpg" alt="DAWAE NFT: red cartoon Knuckles, chair warrior" loading="lazy" width="600" height="600"><figcaption>chair warrior</figcaption><button aria-label="Open NFT 14"></button></figure><figure class="nft"><img src="nft_15.jpg" alt="DAWAE NFT: red cartoon Knuckles, sneaker wae" loading="lazy" width="600" height="600"><figcaption>sneaker wae</figcaption><button aria-label="Open NFT 15"></button></figure><figure class="nft"><img src="nft_16.jpg" alt="DAWAE NFT: red cartoon Knuckles, big smile energy" loading="lazy" width="600" height="600"><figcaption>big smile energy</figcaption><button aria-label="Open NFT 16"></button></figure><figure class="nft"><img src="nft_17.jpg" alt="DAWAE NFT: red cartoon Knuckles, pointing at da wae" loading="lazy" width="600" height="600"><figcaption>pointing at da wae</figcaption><button aria-label="Open NFT 17"></button></figure><figure class="nft"><img src="nft_18.jpg" alt="DAWAE NFT: red cartoon Knuckles, fast lane" loading="lazy" width="600" height="600"><figcaption>fast lane</figcaption><button aria-label="Open NFT 18"></button></figure></div></div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Meme viewer">
+  <button class="x" aria-label="Close">&times;</button>
+  <button class="pv" aria-label="Previous">&lsaquo;</button>
+  <figure><img id="lbimg" src="" alt=""><figcaption id="lbcap"></figcaption></figure>
+  <button class="nx" aria-label="Next">&rsaquo;</button>
+</div>
+
+<!-- ===== HOW TO BUY ===== -->
+<section id="buy" class="trail-sec edge-top">
+  <div class="wrap head rv">
+    <span class="kicker">4 waypoints</span>
+    <h2 class="title lg chunk w">How to buy</h2>
+    <p>Da wae to your wallet, step by step. Scroll and follow the path.</p>
+  </div>
+  <div class="buy-track" data-trail data-rider="knuckles.png">
+    <div class="stop">
+      <div class="card"><span class="num">1</span><h4>Get Phantom</h4><p>Download the <a href="https://phantom.app" target="_blank" rel="noopener">Phantom</a> wallet (app or browser extension). Write your seed phrase on paper and never share it with anyone, not even a Knuckles.</p></div>
+    </div>
+    <div class="stop">
+      <div class="card"><span class="num">2</span><h4>Load up SOL</h4><p>Buy SOL inside Phantom, or on an exchange and send it to your Phantom address. Keep a little extra for network fees.</p></div>
+    </div>
+    <div class="stop">
+      <div class="card"><span class="num">3</span><h4>Open pump.fun or Jupiter</h4><p>Go to <a href="https://pump.fun" target="_blank" rel="noopener">pump.fun</a> or <a href="https://jup.ag" target="_blank" rel="noopener">Jupiter</a> and connect your Phantom wallet.</p></div>
+    </div>
+    <div class="stop">
+      <div class="card"><span class="num">4</span><h4>Paste the CA, swap</h4><p>Paste the official $DAWAE contract address (copy it below, only from this site or our pinned posts), choose your amount and swap. Welcome to da wae.</p></div>
+    </div>
+  </div>
+  <div class="after rv">
+    <div class="ca" role="group" aria-label="Contract address"><span class="lab">CA</span><code class="ca-text">coming soon</code><button class="copy" type="button">Copy</button></div>
+  </div>
+</section>
+
+<!-- ===== TOKENOMICS ===== -->
+<section id="tokens" class="edge-top">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="kicker">Simple</span>
+      <h2 class="title lg chunk">Tokenomics</h2>
+    </div>
+    <div class="badge-zone">
+      <div class="badge rv">
+        <svg class="burst" viewBox="0 0 200 200" aria-hidden="true"><polygon id="burstpoly" fill="#FFD21F" stroke="#141010" stroke-width="3" stroke-linejoin="round"/></svg>
+        <div class="core"><div><small>Total supply</small><strong>1B</strong><small>$DAWAE</small></div></div>
+      </div>
+      <div class="chips">
+        <div class="chip c1"><strong>0%</strong><small>Buy tax</small></div>
+        <div class="chip c2"><strong>0%</strong><small>Sell tax</small></div>
+        <div class="chip c3"><strong>Fair</strong><small>pump.fun launch</small></div>
+        <div class="chip c4"><strong>69</strong><small>Chain size (vibes)</small></div>
+      </div>
+    </div>
+    <p class="fine">No presale, no team wallets promised, no roadmap. Just Knuckles and da wae. Always verify on-chain before buying.</p>
+  </div>
+</section>
+
+<!-- ===== SOCIALS ===== -->
+<section id="socials" class="edge-top">
+  <div class="wrap rv">
+    <span class="kicker" style="background:var(--yel);color:var(--blk)">Join the Wae Warriors</span>
+    <h2 class="title lg chunk r">Show them da wae</h2>
+    <p>Come click with us. Always check the CA pinned in our channels.</p>
+    <div class="soc">
+      <a class="btn" href="#" data-click><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.7 8 10.3h-6.2l-4.9-6.3L5.4 21H2.3l7.3-8.3L1.9 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>X / Twitter</a>
+      
+      <a class="btn" href="#" data-click>pump.fun</a>
+      <a class="btn" href="#" data-click>DexScreener</a>
+    </div>
+  </div>
+  <svg class="ridge" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true"><polygon points="-40,300 -40,183 166,157 209,181 346,144 469,184 686,114 721,183 803,144 880,194 908,152 1151,184 1184,112 1480,196 1480,300" fill="#8E1420"/>
+<polygon points="-40,183 166,157 153,215" fill="#C42A2A"/>
+<polygon points="166,157 209,181 153,215" fill="#8E1420"/>
+<polygon points="166,157 181,166 160,186" fill="#E04A2E"/>
+<polygon points="83,168 166,157 160,186" fill="#8E1420"/>
+<polygon points="209,181 346,144 334,215" fill="#C42A2A"/>
+<polygon points="346,144 469,184 334,215" fill="#8E1420"/>
+<polygon points="346,144 389,158 340,180" fill="#E04A2E"/>
+<polygon points="292,159 346,144 340,180" fill="#C42A2A"/>
+<polygon points="469,184 686,114 683,215" fill="#C42A2A"/>
+<polygon points="686,114 721,183 683,215" fill="#8E1420"/>
+<polygon points="686,114 698,138 685,165" fill="#E04A2E"/>
+<polygon points="599,142 686,114 685,165" fill="#C42A2A"/>
+<polygon points="721,183 803,144 786,215" fill="#C42A2A"/>
+<polygon points="803,144 880,194 786,215" fill="#8E1420"/>
+<polygon points="803,144 830,161 795,179" fill="#E04A2E"/>
+<polygon points="770,159 803,144 795,179" fill="#C42A2A"/>
+<polygon points="880,194 908,152 927,215" fill="#C42A2A"/>
+<polygon points="908,152 1151,184 927,215" fill="#8E1420"/>
+<polygon points="908,152 993,163 918,184" fill="#E04A2E"/>
+<polygon points="897,169 908,152 918,184" fill="#C42A2A"/>
+<polygon points="1151,184 1184,112 1194,215" fill="#C42A2A"/>
+<polygon points="1184,112 1480,196 1194,215" fill="#8E1420"/>
+<polygon points="1184,112 1288,141 1189,163" fill="#E04A2E"/>
+<polygon points="1171,141 1184,112 1189,163" fill="#C42A2A"/></svg>
+</section>
+<footer>
+  <div class="wrap">
+    <img src="favicon.png" alt="" width="64" height="64">
+    <div>
+      <p><b>$DAWAE</b> is a meme coin made for fun, with no intrinsic value, no expectation of financial return, no team promises and no roadmap. Nothing on this site is financial advice. Crypto is volatile: only use money you can afford to lose, and always verify the contract address yourself.</p>
+      <p>$DAWAE is a fan tribute to a 2018 internet meme. It is not affiliated with, endorsed by or connected to any video game publisher, character owner, VR platform or any person shown or referenced in community memes.</p>
+      <p>&copy; 2026 Wae Warriors. Clicks synthesised in your browser, no recordings used.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $ = function(s,c){return (c||document).querySelector(s)};
+var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+/* ---------- click synth (WebAudio, off by default) ---------- */
+var actx=null, master=null, soundOn=false, noiseBuf=null;
+function initAudio(){
+  if(actx) return;
+  var AC = window.AudioContext||window.webkitAudioContext; if(!AC) return;
+  actx = new AC(); master = actx.createGain(); master.gain.value=.35; master.connect(actx.destination);
+  var len = Math.floor(actx.sampleRate*.025); noiseBuf = actx.createBuffer(1,len,actx.sampleRate);
+  var d = noiseBuf.getChannelData(0); for(var i=0;i<len;i++){ d[i]=(Math.random()*2-1)*Math.pow(1-i/len,4); }
+}
+function click(force){
+  if(!(soundOn||force)||!actx) return;
+  var t = actx.currentTime+.005;
+  var o = actx.createOscillator(), g = actx.createGain();
+  o.type='sine'; o.frequency.setValueAtTime(1900+Math.random()*900,t); o.frequency.exponentialRampToValueAtTime(600,t+.035);
+  g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.9,t+.002); g.gain.exponentialRampToValueAtTime(.0001,t+.06);
+  o.connect(g); g.connect(master); o.start(t); o.stop(t+.07);
+  var n = actx.createBufferSource(); n.buffer=noiseBuf;
+  var bp = actx.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=2600+Math.random()*1400; bp.Q.value=2;
+  var ng = actx.createGain(); ng.gain.value=.8; n.connect(bp); bp.connect(ng); ng.connect(master); n.start(t);
+}
+function clicks(n,gap){ for(var i=0;i<n;i++) setTimeout(click, i*(gap||85)); }
+var snd = $('#snd');
+snd.addEventListener('click',function(){
+  initAudio(); if(actx && actx.state==='suspended') actx.resume();
+  soundOn=!soundOn; snd.setAttribute('aria-pressed',soundOn); $('.st',snd).textContent=soundOn?'on':'off';
+  if(soundOn) clicks(3); toast(soundOn?'clicks on. *click click*':'clicks off');
+});
+$('#clickme').addEventListener('click',function(){
+  if(!soundOn){ toast('turn on Clicks in the menu first'); }
+  clicks(4,70); wobble($('#heroframe'));
+});
+document.addEventListener('click',function(e){ if(e.target.closest('[data-click]')) click(); });
+function wobble(el){ if(RM||!el.animate) return; el.animate([{transform:'rotate(3deg) scale(1)'},{transform:'rotate(-4deg) scale(1.05)'},{transform:'rotate(5deg) scale(.98)'},{transform:'rotate(3deg) scale(1)'}],{duration:450,easing:'ease-out'}); }
+
+/* ---------- toast ---------- */
+var tEl=$('#toast'), tT;
+function toast(m){ tEl.textContent=m; tEl.classList.add('on'); clearTimeout(tT); tT=setTimeout(function(){tEl.classList.remove('on')},1800); }
+
+/* ---------- copy CA ---------- */
+$$('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var v = $('.ca-text',b.parentNode).textContent.trim(); click();
+    if(/coming soon/i.test(v)){ toast('CA coming soon. only trust this site + pinned posts'); return; }
+    var done=function(){ b.textContent='Copied'; b.classList.add('ok'); toast('CA copied. you know da wae'); setTimeout(function(){b.textContent='Copy';b.classList.remove('ok')},1600); };
+    if(navigator.clipboard) navigator.clipboard.writeText(v).then(done,function(){toast('copy failed, select it manually')}); else toast('copy failed, select it manually');
+  });
+});
+
+/* ---------- hero bubbles sequence ---------- */
+if(!RM){
+  setTimeout(function(){ $('.hero-art .b1').classList.add('out'); $('.hero-art .b2').classList.add('out'); }, 4200);
+}
+
+/* ---------- reveal ---------- */
+if('IntersectionObserver' in window && !RM){
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{rootMargin:'0px 0px -8% 0px'});
+  $$('.rv').forEach(function(el){ io.observe(el); });
+} else { $$('.rv').forEach(function(el){ el.classList.add('in'); }); }
+
+/* ---------- trails (scroll-drawn path + rider) ---------- */
+var NS='http://www.w3.org/2000/svg';
+function Trail(track){
+  this.track=track; this.stops=$$('.stop',track); this.n=this.stops.length;
+  var svg=document.createElementNS(NS,'svg'); svg.setAttribute('class','trail'); svg.setAttribute('aria-hidden','true');
+  this.ghost=mk('path','ghost'); this.ink0=mk('path','ink0'); this.ink1=mk('path','ink1');
+  svg.appendChild(this.ghost); svg.appendChild(this.ink0); svg.appendChild(this.ink1);
+  this.wps=[]; for(var i=0;i<this.n;i++){ var g=mk('g','wp'), c=mk('circle'), t=mk('text'); c.setAttribute('r',24); t.textContent=i+1; g.appendChild(c); g.appendChild(t); svg.appendChild(g); this.wps.push(g); }
+  track.insertBefore(svg,track.firstChild); this.svg=svg;
+  var src=track.getAttribute('data-rider');
+  if(src){ var r=document.createElement('div'); r.className='rider'; r.innerHTML='<div class="bob"><img src="'+src+'" alt="" width="598" height="640"></div>'; track.appendChild(r); this.rider=r; }
+  this.lastLen=-1; this.lastDir=1; this.build();
+  function mk(tag,cls){ var e=document.createElementNS(NS,tag); if(cls) e.setAttribute('class',cls); return e; }
+}
+Trail.prototype.build=function(){
+  var W=this.track.clientWidth, H=this.track.clientHeight, n=this.n, mob=W<760;
+  this.svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var pad=mob?120:180, xs=[], ys=[], pts=[];
+  var xl=mob?24:W*0.24, xr=mob?64:W*0.76;
+  pts.push([mob?24:W*0.5, 0]);
+  for(var i=0;i<n;i++){ var y=pad+(i+.5)*(H-2*pad)/n; var x=mob?(i%2?xr:xl):(i%2?xr:xl); pts.push([x,y]); }
+  pts.push([mob?24:W*0.5, H]);
+  var d='M'+pts[0][0]+','+pts[0][1], segs=[d];
+  for(var k=1;k<pts.length;k++){ var a=pts[k-1], b=pts[k], dy=(b[1]-a[1])*.55; d+=' C'+a[0]+','+(a[1]+dy)+' '+b[0]+','+(b[1]-dy)+' '+b[0]+','+b[1]; segs.push(d); }
+  [this.ghost,this.ink0,this.ink1].forEach(function(p){ p.setAttribute('d',d); });
+  var L=this.ink1.getTotalLength(); this.L=L;
+  // length at each stop: measure prefixes
+  var tmp=document.createElementNS(NS,'path'); this.svg.appendChild(tmp); this.stopLen=[];
+  for(i=0;i<n;i++){ tmp.setAttribute('d',segs[i+1]); this.stopLen.push(tmp.getTotalLength()); }
+  this.svg.removeChild(tmp);
+  // y -> length lookup
+  var S=500; this.lut=[]; for(i=0;i<=S;i++){ var l=L*i/S; this.lut.push([this.ink1.getPointAtLength(l).y,l]); }
+  [this.ink0,this.ink1].forEach(function(p){ p.style.strokeDasharray=L+' '+L; });
+  for(i=0;i<n;i++){
+    var P=pts[i+1], st=this.stops[i];
+    this.wps[i].setAttribute('transform','translate('+P[0]+','+P[1]+')');
+    var h=st.offsetHeight;
+    st.style.top=Math.max(0,P[1]-h*0.55)+'px';
+    if(mob){ st.style.left=(xr+34)+'px'; st.style.right='12px'; }
+    else if(P[0]<W/2){ st.style.left=(P[0]+70)+'px'; st.style.right='auto'; }
+    else { st.style.left='auto'; st.style.right=(W-P[0]+70)+'px'; }
+  }
+  this.lastLen=-1; this.update(true);
+};
+Trail.prototype.lenAtY=function(y){
+  var lut=this.lut; if(y<=lut[0][0]) return 0; if(y>=lut[lut.length-1][0]) return this.L;
+  var lo=0,hi=lut.length-1; while(hi-lo>1){ var m=(lo+hi)>>1; if(lut[m][0]<y) lo=m; else hi=m; }
+  var a=lut[lo],b=lut[hi],t=(y-a[0])/((b[0]-a[0])||1); return a[1]+(b[1]-a[1])*t;
+};
+Trail.prototype.update=function(force){
+  var r=this.track.getBoundingClientRect(), vh=window.innerHeight;
+  if(!force && (r.bottom< -200 || r.top>vh+200)) return;
+  var len = RM ? this.L : this.lenAtY(vh*0.58 - r.top);
+  if(!force && Math.abs(len-this.lastLen)<.5) return;
+  var dir = len>=this.lastLen?1:-1; this.lastLen=len;
+  var off=this.L-len; this.ink0.style.strokeDashoffset=off; this.ink1.style.strokeDashoffset=off;
+  for(var i=0;i<this.n;i++){ var on=len>=this.stopLen[i]-8; if(on!==this.stops[i].classList.contains('on')){ this.stops[i].classList.toggle('on',on); this.wps[i].classList.toggle('on',on); if(on){ clicks(2,90); } } }
+  if(this.rider){
+    var p=this.ink1.getPointAtLength(len), q=this.ink1.getPointAtLength(Math.min(this.L,len+6)), w=this.rider.offsetWidth;
+    var goingLeft=(q.x-p.x)*dir<-0.3; this.rider.classList.toggle('left',goingLeft); this.rider.classList.toggle('idle',len<30);
+    this.rider.style.transform='translate3d('+(p.x-w/2)+'px,'+(p.y-w*1.0)+'px,0)';
+  }
+  if(this.isMain){ setMeter(len/this.L); }
+};
+var trails=$$('[data-trail]').map(function(t){ return new Trail(t); });
+if(trails[0]) trails[0].isMain=true;
+
+/* wae-o-meter */
+var mring=$('#mring'), mnum=$('#mnum'), lastPct=-1;
+function setMeter(f){ var pct=Math.round(f*100); if(pct===lastPct) return; lastPct=pct; mring.style.strokeDashoffset=100.5*(1-f); mnum.textContent=pct+'%'; }
+
+/* ---------- parallax loop ---------- */
+var meter=$('.meter'), layers=$$('#hero [data-d]'), decos=$$('.deco[data-p]'), nav=$('#nav'), frame=$('#heroframe');
+var mx=0,my=0,tmx=0,tmy=0,lastY=-1,lastNavY=0,ticking=false;
+if(!RM && window.matchMedia('(pointer:fine)').matches){
+  window.addEventListener('mousemove',function(e){ tmx=e.clientX/window.innerWidth-.5; tmy=e.clientY/window.innerHeight-.5; if(!ticking) loop(); },{passive:true});
+}
+function loop(){
+  ticking=true;
+  var y=window.scrollY||window.pageYOffset, vh=window.innerHeight;
+  mx+=(tmx-mx)*.08; my+=(tmy-my)*.08;
+  if(!RM && y<vh*1.2){
+    for(var i=0;i<layers.length;i++){ var L=layers[i], d=+L.dataset.d, m=+L.dataset.m; L.style.transform='translate3d('+(-mx*m).toFixed(2)+'px,'+(y*d+my*m*.4).toFixed(2)+'px,0)'; }
+    frame.style.transform='translate3d('+(mx*-14).toFixed(2)+'px,'+(y*-0.08+my*-10).toFixed(2)+'px,0) rotate('+(3+mx*4).toFixed(2)+'deg)';
+  }
+  if(!RM){
+    for(i=0;i<decos.length;i++){ var D=decos[i], r=D.getBoundingClientRect(); if(r.bottom<-300||r.top>vh+300) continue; var c=(r.top-(D._o||0)+r.height/2)-vh/2; D._o = c*+D.dataset.p; D.style.transform='translate3d(0,'+D._o.toFixed(1)+'px,0)'; }
+  }
+  if(y!==lastY){
+    for(i=0;i<trails.length;i++) trails[i].update();
+    if(y>lastNavY+8 && y>400) nav.classList.add('hide'); else if(y<lastNavY-8) nav.classList.remove('hide');
+    lastNavY=y; lastY=y;
+    meter.classList.toggle('gone', y<vh*.5 || y+vh>document.documentElement.scrollHeight-500);
+  }
+  if(Math.abs(tmx-mx)>.001||Math.abs(tmy-my)>.001){ requestAnimationFrame(loop); } else { ticking=false; }
+}
+window.addEventListener('scroll',function(){ if(!ticking) requestAnimationFrame(loop), ticking=true; },{passive:true});
+var rT; window.addEventListener('resize',function(){ clearTimeout(rT); rT=setTimeout(function(){ trails.forEach(function(t){t.build()}); loop(); },150); });
+window.addEventListener('load',function(){ trails.forEach(function(t){t.build()}); loop(); });
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ trails.forEach(function(t){t.build()}); });
+loop();
+
+/* ---------- find da queen ---------- */
+var qg=$('#qgame'), qn=$('#qn'), qwin=$('#qwin'), qCount=0, qIdx=0, qDone=false;
+var COLS=function(){ return window.innerWidth<=560?3:4; };
+var bushSVG='<svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="10,78 22,40 38,58" fill="#146B2E"/><polygon points="22,40 50,14 38,58" fill="#2BB04F"/><polygon points="50,14 62,56 38,58" fill="#1E8A3C"/><polygon points="50,14 80,38 62,56" fill="#146B2E"/><polygon points="80,38 90,78 62,56" fill="#2BB04F"/><polygon points="10,78 38,58 50,86" fill="#1E8A3C"/><polygon points="38,58 62,56 50,86" fill="#0F5A27"/><polygon points="62,56 90,78 50,86" fill="#146B2E"/><polygon points="30,30 36,22 40,32" fill="#E8202A"/><polygon points="68,30 74,24 76,34" fill="#FFD21F"/></svg>';
+var crownSVG='<svg viewBox="0 0 100 70" aria-hidden="true"><polygon points="6,62 12,14 32,38 50,4 68,38 88,14 94,62" fill="#E8202A" stroke="#141010" stroke-width="5" stroke-linejoin="round"/><rect x="6" y="56" width="88" height="12" fill="#141010"/><circle cx="50" cy="40" r="7" fill="#fff" stroke="#141010" stroke-width="4"/></svg>';
+var NOPE=['no.','fake knuckles','wrong bush','*click*','just a rock','not da wae','keep looking','nope.'];
+function buildQueen(){
+  qg.innerHTML=''; qCount=0; qDone=false; qn.textContent='0'; qwin.classList.remove('on'); qIdx=Math.floor(Math.random()*12);
+  for(var i=0;i<12;i++){
+    var t=document.createElement('div'); t.className='tile';
+    t.innerHTML='<div class="in"><div class="fa">'+bushSVG+'</div><div class="ba"></div></div><button type="button" aria-label="Search bush '+(i+1)+'"></button>';
+    (function(i,t){ $('button',t).addEventListener('click',function(){ reveal(i,t); }); })(i,t);
+    qg.appendChild(t);
+  }
+}
+function reveal(i,t){
+  if(qDone||t.classList.contains('open')) return;
+  qCount++; qn.textContent=qCount; click();
+  var ba=$('.ba',t), c=COLS();
+  if(i===qIdx){
+    qDone=true; ba.className='ba queen'; ba.innerHTML='<div>'+crownSVG+'DA QUEEN</div>'; t.classList.add('open');
+    clicks(6,70); crownRain(t);
+    qwin.innerHTML='<b>you found da queen!</b>'+(qCount===1?'First click. You were born knowing da wae.':'It took '+qCount+' clicks. You are now a certified Wae Warrior.');
+    qwin.classList.add('on');
+    return;
+  }
+  var dist=Math.abs(i%c-qIdx%c)+Math.abs(Math.floor(i/c)-Math.floor(qIdx/c));
+  var cls,msg;
+  if(dist<=1){ cls='hot'; msg='SO HOT'; } else if(dist===2){ cls='warm'; msg='warmer...'; } else { cls='cold'; msg='colder'; }
+  ba.className='ba '+cls; ba.innerHTML='<div>'+NOPE[qCount%NOPE.length]+'<br><small style="font-family:Bungee;font-size:12px">'+msg+'</small></div>'; t.classList.add('open');
+}
+function crownRain(from){
+  if(RM) return; var r=from.getBoundingClientRect();
+  for(var i=0;i<18;i++){
+    var e=document.createElement('div'); e.className='crown-fx'; e.innerHTML=crownSVG; document.body.appendChild(e);
+    var x0=r.left+r.width/2-17, y0=r.top+r.height/2-12, ang=Math.random()*Math.PI*2, sp=120+Math.random()*220;
+    var a=e.animate([{transform:'translate('+x0+'px,'+y0+'px) rotate(0) scale(.4)',opacity:1},{transform:'translate('+(x0+Math.cos(ang)*sp)+'px,'+(y0+Math.sin(ang)*sp-60)+'px) rotate('+(Math.random()*540-270)+'deg) scale(1)',opacity:1,offset:.6},{transform:'translate('+(x0+Math.cos(ang)*sp*1.2)+'px,'+(y0+Math.sin(ang)*sp+240)+'px) rotate('+(Math.random()*720-360)+'deg) scale(.8)',opacity:0}],{duration:1400+Math.random()*600,easing:'cubic-bezier(.2,.7,.3,1)'});
+    (function(e){ a.onfinish=function(){ e.remove(); }; })(e);
+  }
+}
+$('#qreset').addEventListener('click',function(){ click(); buildQueen(); });
+buildQueen();
+
+/* ---------- lightbox ---------- */
+var figs=$$('#wall .meme, #nfts .nft'), lb=$('#lb'), lbimg=$('#lbimg'), lbcap=$('#lbcap'), cur=0, lastFocus=null;
+function openLB(i){ cur=(i+figs.length)%figs.length; var im=$('img',figs[cur]); lbimg.src=im.src; lbimg.alt=im.alt; lbcap.textContent=$('figcaption',figs[cur]).textContent+'  ('+(cur+1)+'/'+figs.length+')'; if(!lb.classList.contains('on')){ lastFocus=document.activeElement; lb.classList.add('on'); document.body.style.overflow='hidden'; $('.x',lb).focus(); } click(); }
+function closeLB(){ lb.classList.remove('on'); document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+figs.forEach(function(f,i){ $('button',f).addEventListener('click',function(){ openLB(i); }); });
+$('.x',lb).addEventListener('click',closeLB);
+$('.pv',lb).addEventListener('click',function(){ openLB(cur-1); });
+$('.nx',lb).addEventListener('click',function(){ openLB(cur+1); });
+lb.addEventListener('click',function(e){ if(e.target===lb) closeLB(); });
+document.addEventListener('keydown',function(e){ if(!lb.classList.contains('on')) return; if(e.key==='Escape') closeLB(); else if(e.key==='ArrowLeft') openLB(cur-1); else if(e.key==='ArrowRight') openLB(cur+1); });
+var sx=0; lb.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; },{passive:true});
+lb.addEventListener('touchend',function(e){ var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) openLB(cur+(dx<0?1:-1)); });
+
+
+/* ---------- NFT marquee (added) ---------- */
+(function(){
+  var rows=$$('#nfts .nft-row'); if(!rows.length || RM) return;
+  var st=rows.map(function(r){
+    var t=$('.nft-track',r);
+    [].slice.call(t.children).forEach(function(k){
+      var c=k.cloneNode(true); c.className='nft clone'; c.setAttribute('aria-hidden','true');
+      var b=$('button',c); if(b) b.remove(); t.appendChild(c);
+    });
+    return {t:t,dir:+r.getAttribute('data-dir'),x:0};
+  });
+  var lastY=window.scrollY, boost=0;
+  st.forEach(function(o){ if(o.dir<0) o.x=-o.t.scrollWidth/2; });
+  function tick(){
+    var y=window.scrollY; boost=boost*0.9+Math.min(Math.abs(y-lastY),80)*0.1; lastY=y;
+    st.forEach(function(o){
+      var w=o.t.scrollWidth/2; o.x-=o.dir*(0.5+boost*0.35);
+      if(o.x<=-w) o.x+=w; if(o.x>0) o.x-=w;
+      o.t.style.transform='translate3d('+o.x.toFixed(1)+'px,0,0)';
+    });
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+/* ---------- tokenomics starburst ---------- */
+(function(){ var p=[],N=24; for(var i=0;i<N*2;i++){ var a=i*Math.PI/N, r=i%2?78:96; p.push((100+Math.cos(a)*r).toFixed(1)+','+(100+Math.sin(a)*r).toFixed(1)); } $('#burstpoly').setAttribute('points',p.join(' ')); })();
+})();
+</script>
+</body>
+</html>
